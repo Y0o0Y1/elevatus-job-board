@@ -12,7 +12,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
     const handleNavigate = () => {
         dispatch(setCurrentJob(job))
         startTransition(() => {
-            navigate(uri)
+            navigate(`/jobs/${uri}`)
         })
     }
 
@@ -20,7 +20,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
         <Button onClick={handleNavigate} fullWidth >
             <Card variant={"elevation"} elevation={3} sx={{ width: "100%" }}>
                 <Grid container gap={2} justifyContent={"flex-start"}>
-                    <Grid xs={12}>
+                    <Grid item xs={12}>
                         <Typography variant='h5' textAlign={"left"}>{title}</Typography>
                     </Grid>
                     <Grid item xs={12}>
@@ -31,7 +31,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
                     <Grid item xs={12} >
                         <Stack justifyContent={"flex-end"} gap={2} direction={"row"}>
                             {career_level.slice(0, 3).map((level) => {
-                                return <Chip label={level} color='success' />
+                                return <Chip key={level} label={level} color='success' />
                             })}
                         </Stack>
                     </Grid>

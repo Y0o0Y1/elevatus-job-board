@@ -8,10 +8,11 @@ import { AppProps, ChildrenProps } from './types/root';
 import './App.css';
 import { RTL } from './components/rtl';
 import i18n from './i18n/i18n';
-import { store } from './redux/store';
+import { persistor, store } from './redux/store';
 import router from './routes';
 import theme from './styles/GlobalTheme';
 import Loader from './components/Loader/Loader';
+import { PersistGate } from 'redux-persist/integration/react';
 
 /**
  * Main application component responsible for rendering the application layout
@@ -34,11 +35,10 @@ function App(): JSX.Element {
   const providers: React.FC<ChildrenProps>[] = [
     () => <RouterProvider router={router} />,
     ({ children }: ChildrenProps) => <I18nextProvider i18n={i18n}>{children}</I18nextProvider>,
-    ({ children }: ChildrenProps) => (
-      <RTL direction={currentLanguage === 'en' ? 'ltr' : 'rtl'}>{children}</RTL>
-    ),
+    ({ children }: ChildrenProps) => (<RTL direction={currentLanguage === 'en' ? 'ltr' : 'rtl'}>{children}</RTL>),
     ({ children }: ChildrenProps) => <ThemeProvider theme={theme(currentLanguage)}>{children}</ThemeProvider>,
     ({ children }: ChildrenProps) => <Provider store={store}>{children}</Provider>,
+    ({ children }: ChildrenProps) => (<PersistGate loading={null} persistor={persistor}>{children}</PersistGate>),
   ];
 
   return (

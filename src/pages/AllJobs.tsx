@@ -21,7 +21,8 @@ const AllJobs: React.FC = () => {
     };
 
     const handlePageChange = (event: React.ChangeEvent<unknown>, page: number) => {
-        setCurrentPage(page);
+        if (event)
+            setCurrentPage(page);
     };
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;

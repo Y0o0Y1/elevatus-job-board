@@ -6,6 +6,23 @@ export const theme = (language: string) => createTheme({
         fontFamily: "SFMono-Regular,Menlo,Monaco,Consolas ,'Liberation Mono'"
     },
     components: {
+        MuiCssBaseline: {
+            styleOverrides: `
+              ::-webkit-scrollbar {
+                width: 10px; 
+              }
+      
+              ::-webkit-scrollbar-track {
+                background: #f0f0f0; 
+              }
+      
+              ::-webkit-scrollbar-thumb {
+                background: #808080;
+                border-radius: 5px; 
+              }
+            `,
+        },
+
         MuiTypography: {
             variants: [
                 {

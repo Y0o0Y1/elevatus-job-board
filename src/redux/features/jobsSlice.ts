@@ -26,7 +26,7 @@ const initialState: Job = {
     requirements: "",
     skills: [],
     uri: "",
-    posted_at: "",
+    posted_at: new Date().toDateString(),
     score: 0,
     is_applied: false,
     applied_at: null,

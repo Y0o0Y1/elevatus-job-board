@@ -7,7 +7,8 @@ import { useAppSelector } from '../../redux/store';
 
 const JobDetailsCard: React.FC = () => {
     const { t } = useTranslation()
-    const { posted_at, title, description, skills, requirements, location } = useAppSelector((state) => state.jobs)
+    const { posted_at, title, description, skills, requirements, location } = useAppSelector((state) => state?.jobs)
+    
     const formatDate = useCallback((dateString: string) => {
         const date = new Date(dateString);
         return new Intl.DateTimeFormat('en-US', {
@@ -21,7 +22,7 @@ const JobDetailsCard: React.FC = () => {
     const formattedDate = useMemo(() => formatDate(posted_at), [posted_at, formatDate]);
 
     return (
-        <Card elevation={5}>
+        <Card elevation={5} sx={{ overflowY: "scroll", height: "80%" }}>
             <Stack gap={2} flexWrap={"wrap"}>
                 <Stack justifyContent={"space-between"} direction={"row"} gap={1} flexWrap={"wrap"}>
                     <Typography variant='h5'>{title}</Typography>
