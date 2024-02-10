@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { jobsApi } from './services/jobs';
+import jobsSlice from './features/jobsSlice';
 
 
 
 const storeReducers = combineReducers({
+    jobs: jobsSlice,
     [jobsApi.reducerPath]: jobsApi.reducer,
 });
 

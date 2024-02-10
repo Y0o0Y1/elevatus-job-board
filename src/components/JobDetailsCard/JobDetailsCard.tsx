@@ -2,13 +2,12 @@ import { LocationOn } from '@mui/icons-material';
 import { Box, Button, Card, Chip, Stack, Typography } from '@mui/material';
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { JobDetailsCardProps } from './JobDetailsCard.types';
+import { useAppSelector } from '../../redux/store';
 
 
-const JobDetailsCard: React.FC<JobDetailsCardProps> = ({ job }) => {
+const JobDetailsCard: React.FC = () => {
     const { t } = useTranslation()
-    const { posted_at, title, description, skills, requirements, location } = job
-
+    const { posted_at, title, description, skills, requirements, location } = useAppSelector((state) => state.jobs)
     const formatDate = useCallback((dateString: string) => {
         const date = new Date(dateString);
         return new Intl.DateTimeFormat('en-US', {
@@ -18,7 +17,7 @@ const JobDetailsCard: React.FC<JobDetailsCardProps> = ({ job }) => {
             year: 'numeric'
         }).format(date);
     }, []);
-    
+
     const formattedDate = useMemo(() => formatDate(posted_at), [posted_at, formatDate]);
 
     return (

@@ -32,13 +32,13 @@ function App(): JSX.Element {
 
   // Define providers array to be passed to AppContext
   const providers: React.FC<ChildrenProps>[] = [
-    ({ children }: ChildrenProps) => <Provider store={store}>{children}</Provider>,
     () => <RouterProvider router={router} />,
     ({ children }: ChildrenProps) => <I18nextProvider i18n={i18n}>{children}</I18nextProvider>,
     ({ children }: ChildrenProps) => (
       <RTL direction={currentLanguage === 'en' ? 'ltr' : 'rtl'}>{children}</RTL>
     ),
     ({ children }: ChildrenProps) => <ThemeProvider theme={theme(currentLanguage)}>{children}</ThemeProvider>,
+    ({ children }: ChildrenProps) => <Provider store={store}>{children}</Provider>,
   ];
 
   return (
