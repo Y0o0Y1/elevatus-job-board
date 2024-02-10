@@ -3,24 +3,36 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": { 
+  "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.9",
     "@mui/material": "^5.15.9",
+    "@mui/styled-engine": "^5.15.9",
     "@mui/styled-engine-sc": "^6.0.0-alpha.16",
     "@reduxjs/toolkit": "^2.1.0",
+    "@uidotdev/usehooks": "^2.4.1",
+    "axios": "^1.6.7",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^14.0.5",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.22.0",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "stylis": "^4.3.1",
+    "stylis-plugin-rtl": "^2.1.1"
   },
   "devDependencies": {
     "@testing-library/react": "^14.2.1",
+    "@types/node": "^20.11.17",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
