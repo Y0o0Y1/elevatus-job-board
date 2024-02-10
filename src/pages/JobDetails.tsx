@@ -1,10 +1,10 @@
-import { Card, Grid } from '@mui/material'
+import { Grid } from '@mui/material'
 import React, { useState } from 'react'
 import JobDetailsCard from '../components/JobDetailsCard/JobDetailsCard'
 import { jobs } from '../constants/constants'
 
 const JobDetails: React.FC = () => {
-    const [currentJob, setCurrentJob] = useState(jobs[1])
+    const [currentJob] = useState(jobs[1])
 
     return (
         <Grid container>

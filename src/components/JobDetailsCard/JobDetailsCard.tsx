@@ -1,8 +1,8 @@
-import { Box, Button, Card, Chip, Grid, Stack, Typography } from '@mui/material'
-import React, { useCallback, useMemo } from 'react'
+import { LocationOn } from '@mui/icons-material';
+import { Box, Button, Card, Chip, Stack, Typography } from '@mui/material';
+import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { JobDetailsCardProps } from './JobDetailsCard.types';
-import { LocationOn } from '@mui/icons-material';
 
 
 const JobDetailsCard: React.FC<JobDetailsCardProps> = ({ job }) => {

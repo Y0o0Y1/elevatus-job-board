@@ -1,16 +1,13 @@
 import { Grid, Pagination, Stack, TextField, Typography } from '@mui/material'
 import { useDebounce } from '@uidotdev/usehooks'
-import React, { ChangeEvent, SyntheticEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
 import JobCard from '../components/JobCard/JobCard'
 import { jobs } from '../constants/constants'
-import { useFetchAllJobsQuery } from '../redux/services/jobs'
 
 
 const AllJobs: React.FC = () => {
     const { t } = useTranslation()
-    const navigate = useNavigate()
     const [keyword, setKeyword] = useState('');
     const debouncedSearchTerm = useDebounce(keyword, 500);
     const [paginationParams, setPaginationParams] = useState({ limit: 5, page: 0 })
@@ -23,6 +20,7 @@ const AllJobs: React.FC = () => {
 
     const handlePagination = (event: React.ChangeEvent<unknown>, value: number) => {
         setPaginationParams({ ...paginationParams, page: value - 1 });
+        console.log(event)
     }
 
     useEffect(() => {
@@ -39,7 +37,7 @@ const AllJobs: React.FC = () => {
                 <Grid item xs={12}>
                     <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
                         <Typography variant='h2'>{t("currentOpenings")}</Typography>
-                        <TextField label={"Search"} onChange={handleSearch} value={keyword} />
+                        <TextField label={"Search"} onChange={handleSearch} value={debouncedSearchTerm} />
                     </Stack>
                 </Grid>
                 {jobs && jobs.map((job) => {
