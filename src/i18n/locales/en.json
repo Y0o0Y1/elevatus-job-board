@@ -4,6 +4,12 @@
     "datePosted":"Date Posted",
     "description":"Description",
     "requirements":"Requirements",
-    "applyNow":"Apply Now"
+    "applyNow":"Apply Now",
+    "emptyStateTitle":"The Title You are Searching for is not available",
+    "backToHome":"Back To Home",
+    "500Error":"Error 500 Internal Server Error ",
+    "404Error":"Page not found ",
+    "search":"Search"
+    
 
 }

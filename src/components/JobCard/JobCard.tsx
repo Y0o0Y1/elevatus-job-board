@@ -2,36 +2,38 @@ import { Button, Card, Chip, Grid, Stack, Typography } from '@mui/material';
 import React, { startTransition } from 'react';
 import { JobCardProps } from './JobCard.types';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../redux/store';
+import { setCurrentJob } from '../../redux/features/jobsSlice';
 
-const JobCard: React.FC<JobCardProps> = ({ jobTitle, jobLocation, careerLevel, jobUri }) => {
+const JobCard: React.FC<JobCardProps> = ({ job, selected }) => {
+    const dispatch = useAppDispatch()
+    const { uri, title, location, career_level } = job
     const navigate = useNavigate()
-
     const handleNavigate = () => {
+        dispatch(setCurrentJob(job))
         startTransition(() => {
-            navigate(jobUri)
+            navigate(`/jobs/${uri}`)
         })
     }
 
     return (
-        <Button onClick={handleNavigate} >
-            <Card variant={"elevation"} elevation={3} >
+        <Button onClick={handleNavigate} fullWidth >
+            <Card variant={"elevation"} elevation={3} sx={{ width: "100%", border: selected ? "2px solid blue" : "" }}>
                 <Grid container gap={2} justifyContent={"flex-start"}>
-                    <Grid xs={12}>
-                        <Typography variant='h5' >{jobTitle}</Typography>
+                    <Grid item xs={12}>
+                        <Typography variant='h5' textAlign={"left"}>{title}</Typography>
                     </Grid>
                     <Grid item xs={12}>
                         <Stack alignItems={"flex-end"}>
-                            <Chip label={jobLocation.country} color='primary' />
+                            <Chip label={location.country} color='primary' />
                         </Stack>
                     </Grid>
                     <Grid item xs={12} >
                         <Stack justifyContent={"flex-end"} gap={2} direction={"row"}>
-                            {careerLevel.slice(0, 3).map((level) => {
-                                return <Chip label={level} color='success' />
+                            {career_level.slice(0, 3).map((level) => {
+                                return <Chip key={level} label={level} color='success' />
                             })}
                         </Stack>
-                    </Grid>
-                    <Grid item>
                     </Grid>
                 </Grid>
             </Card>

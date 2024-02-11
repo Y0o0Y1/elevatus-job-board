@@ -1,11 +1,8 @@
+import { Job } from "../../types/jobs"
+
 interface JobCardProps {
-    jobTitle: string,
-    jobLocation: {
-        city: string,
-        country: string
-    },
-    careerLevel: string[],
-    jobUri: string,
+    job: Job;
+    selected?: boolean
 
 }
 export type { JobCardProps }

@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
-import ResponsiveAppBar from '../components/Header/Header'
 import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
+import ResponsiveAppBar from '../components/Header/Header'
 
 const StyledBox = styled(Box)`
     padding: 25px;

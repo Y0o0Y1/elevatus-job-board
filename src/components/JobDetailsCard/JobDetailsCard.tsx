@@ -4,11 +4,9 @@ import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { JobDetailsCardProps } from './JobDetailsCard.types';
 
-
 const JobDetailsCard: React.FC<JobDetailsCardProps> = ({ job }) => {
     const { t } = useTranslation()
     const { posted_at, title, description, skills, requirements, location } = job
-
     const formatDate = useCallback((dateString: string) => {
         const date = new Date(dateString);
         return new Intl.DateTimeFormat('en-US', {
@@ -18,11 +16,10 @@ const JobDetailsCard: React.FC<JobDetailsCardProps> = ({ job }) => {
             year: 'numeric'
         }).format(date);
     }, []);
-    
     const formattedDate = useMemo(() => formatDate(posted_at), [posted_at, formatDate]);
 
     return (
-        <Card elevation={5}>
+        <Card elevation={5} sx={{ overflowY: "scroll", minHeight: "min-content", height: "80%", maxHeight: "max-content" }}>
             <Stack gap={2} flexWrap={"wrap"}>
                 <Stack justifyContent={"space-between"} direction={"row"} gap={1} flexWrap={"wrap"}>
                     <Typography variant='h5'>{title}</Typography>
