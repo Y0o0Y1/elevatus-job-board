@@ -33,7 +33,7 @@
 
 **Project Setup and Tooling**
 
-* **[Vite / Webpack / Other]** (Specify your build tool): Bundles assets, provides a  development server, and optimizes for production. 
+* **Vite**: Bundles assets, provides a  development server, and optimizes for production. 
 
 
 
