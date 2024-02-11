@@ -4,8 +4,14 @@ import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Error404 from "../assets/404.json";
 import Error500 from "../assets/500-error.json";
+import { useTranslation } from "react-i18next";
+
+const headerStyles = {
+	font: "normal normal 800 30px/46px Poppins",
+};
 
 const ErrorPage = () => {
+	const { t } = useTranslation()
 	const render500Page = () => {
 		return (
 			<Stack
@@ -15,7 +21,7 @@ const ErrorPage = () => {
 				spacing={2}
 			>
 				<Typography sx={headerStyles}>
-					Error 500 Internal Server Error
+					{t("500Error")}
 				</Typography>
 				<Lottie
 					loop={true}
@@ -24,23 +30,11 @@ const ErrorPage = () => {
 					//width={"auto"}
 					style={{ width: "auto", height: "284px" }}
 				/>
-				<Typography
-					color={"secondary.contrastText"}
-					sx={{ maxWidth: "20%" }}
-					align={"center"}
-				>
-					{" "}
-					Ratione sequi quod aut quidem magni consectetur similique.
-					accusamus-animi-dolorem sequi-dolorem-ut
-				</Typography>
 				<Link to={"/"}>
-					<Button variant={"contained"}>Back To Home</Button>
+					<Button variant={"contained"}>{t("backToHome")}</Button>
 				</Link>
 			</Stack>
 		);
-	};
-	const headerStyles = {
-		font: "normal normal 800 30px/46px Poppins",
 	};
 	const render404Page = () => {
 		return (
@@ -50,7 +44,9 @@ const ErrorPage = () => {
 				sx={{ height: "100%" }}
 				spacing={2}
 			>
-				<Typography sx={headerStyles}>Page not found</Typography>
+				<Typography sx={headerStyles}>
+					{t("404Error")}
+				</Typography>
 				<Lottie
 					loop={true}
 					autoPlay={true}
@@ -58,17 +54,8 @@ const ErrorPage = () => {
 					//width={"auto"}
 					style={{ width: "auto", height: "284px" }}
 				/>
-				<Typography
-					color={"secondary.contrastText"}
-					align={"center"}
-					sx={{ maxWidth: "20%" }}
-				>
-					{" "}
-					Ratione sequi quod aut quidem magni consectetur similique.
-					accusamus-animi-dolorem sequi-dolorem-ut
-				</Typography>
 				<Link to={"/"}>
-					<Button variant={"contained"}>Back To Home</Button>
+					<Button variant={"contained"}>{t("backToHome")}</Button>
 				</Link>
 			</Stack>
 		);

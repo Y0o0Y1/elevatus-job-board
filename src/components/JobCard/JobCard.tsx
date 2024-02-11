@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
 import { setCurrentJob } from '../../redux/features/jobsSlice';
 
-const JobCard: React.FC<JobCardProps> = ({ job }) => {
+const JobCard: React.FC<JobCardProps> = ({ job, selected }) => {
     const dispatch = useAppDispatch()
     const { uri, title, location, career_level } = job
     const navigate = useNavigate()
@@ -18,7 +18,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
 
     return (
         <Button onClick={handleNavigate} fullWidth >
-            <Card variant={"elevation"} elevation={3} sx={{ width: "100%" }}>
+            <Card variant={"elevation"} elevation={3} sx={{ width: "100%", border: selected ? "2px solid blue" : "" }}>
                 <Grid container gap={2} justifyContent={"flex-start"}>
                     <Grid item xs={12}>
                         <Typography variant='h5' textAlign={"left"}>{title}</Typography>

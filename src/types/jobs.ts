@@ -1,10 +1,25 @@
-interface ApiResponse {
+interface AllJobsApiResponse {
     statusCode: number;
     message: string;
     results: Results;
     dateTime: DateTime;
 }
+interface ErrorResponseDTO {
+    data: {
+        statusCode: number;
+        message: string;
+        error: [];
+        dateTime: DateTime;
+    }
+}
 
+
+interface OneJobApiResponse {
+    statusCode: number;
+    message: string;
+    results: Job;
+    dateTime: DateTime;
+}
 interface Results {
     jobs: Job[];
     total: number;
@@ -75,4 +90,4 @@ interface DateTime {
     timezone: string;
 }
 
-export type { ApiResponse, Job }
+export type { AllJobsApiResponse, Job, OneJobApiResponse, ErrorResponseDTO }

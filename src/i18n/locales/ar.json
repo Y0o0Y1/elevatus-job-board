@@ -1,4 +1,13 @@
 {
-    "currentOpenings":"الوظائف المتاحة",
-    "title":"العنوان"
+    "currentOpenings": "الوظائف الشاغرة حاليًا", 
+    "title": "العنوان", 
+    "datePosted": "تاريخ النشر", 
+    "description": "الوصف", 
+    "requirements": "المتطلبات", 
+    "applyNow": "قدم الآن", 
+    "emptyStateTitle": "العنوان الذي تبحث عنه غير متوفر", 
+    "backToHome": "عودة للرئيسية", 
+    "500Error": "خطأ 500: خطأ داخلي في الخادم",
+    "404Error": "الصفحة غير موجودة", 
+    "search": "بحث" 
 }
