@@ -12,14 +12,25 @@ interface ErrorResponseDTO {
         dateTime: DateTime;
     }
 }
-
-
 interface OneJobApiResponse {
     statusCode: number;
     message: string;
     results: Job;
     dateTime: DateTime;
 }
+
+interface FetchAllJobsParams {
+    limit: number;
+    page: number;
+    itemQuery?: string;
+    lang: string
+}
+
+interface FetchOneJobParams {
+    uri: string;
+    lang: string
+}
+
 interface Results {
     jobs: Job[];
     total: number;
@@ -90,4 +101,4 @@ interface DateTime {
     timezone: string;
 }
 
-export type { AllJobsApiResponse, Job, OneJobApiResponse, ErrorResponseDTO }
+export type { AllJobsApiResponse, Job, OneJobApiResponse, ErrorResponseDTO, FetchAllJobsParams, FetchOneJobParams }

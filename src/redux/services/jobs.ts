@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import i18n from '../../i18n/i18n';
-import { AllJobsApiResponse, ErrorResponseDTO, OneJobApiResponse } from '../../types/jobs';
+import { AllJobsApiResponse, ErrorResponseDTO, FetchAllJobsParams, FetchOneJobParams, OneJobApiResponse } from '../../types/jobs';
 
 export const JOBS_API = 'jobsApi';
 export const jobsApi = createApi({
@@ -16,7 +16,7 @@ export const jobsApi = createApi({
     }),
     endpoints: (builder) => ({
         //todo collect params in one type
-        fetchAllJobs: builder.query<AllJobsApiResponse, { limit: number, page: number, itemQuery?: string, lang: string }>({
+        fetchAllJobs: builder.query<AllJobsApiResponse, FetchAllJobsParams>({
             query: (params) => ({
                 url: "/jobs",
                 method: "GET",
@@ -26,7 +26,7 @@ export const jobsApi = createApi({
                 }
             }),
         }),
-        fetchOneJob: builder.query<OneJobApiResponse, { uri: string, lang: string }>({
+        fetchOneJob: builder.query<OneJobApiResponse, FetchOneJobParams>({
             query: (params) => ({
                 url: "/jobs/uri",
                 method: "GET",
