@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import i18n from '../../i18n/i18n';
-import { AllJobsApiResponse, ErrorResponseDTO, FetchAllJobsParams, FetchOneJobParams, OneJobApiResponse } from '../../types/jobs';
+import { AllJobsApiResponse, FetchAllJobsParams, FetchOneJobParams, OneJobApiResponse } from '../../types/jobs';
 
 export const JOBS_API = 'jobsApi';
 export const jobsApi = createApi({
