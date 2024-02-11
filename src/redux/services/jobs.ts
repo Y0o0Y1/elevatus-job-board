@@ -6,9 +6,10 @@ export const jobsApi = createApi({
     reducerPath: JOBS_API,
     baseQuery: fetchBaseQuery({
         baseUrl: import.meta.env.VITE_BASE_URL,
-        credentials: "same-origin", 
+        credentials: "same-origin",
         prepareHeaders: (headers) => {
             headers.set("Content-Type", "application/json");
+            headers.set('Access-Control-Allow-Origin', '*')
             headers.set('accept-company', import.meta.env.VITE_ACCEPT_COMPANY);
             headers.set('accept-account', import.meta.env.VITE_ACCEPT_ACCOUNT);
             return headers;
